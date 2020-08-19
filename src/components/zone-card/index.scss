@@ -1,0 +1,12 @@
+.zone-card {
+    position: absolute;
+    width: 400px;
+    height: calc(100vh - 20px - 50px);
+    background-color: white;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    padding: 15px;
+    overflow: auto;
+}

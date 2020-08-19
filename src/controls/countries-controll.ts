@@ -7,6 +7,7 @@ export class CountriesControll implements IControl {
     container: HTMLDivElement | null = null;
     layers = new Map<ZoneCode, ZoneLayer>();
     highlightedZone: null | ZoneCode = null;
+    zones: Array<{ [key: string]: string }> = [];
 
     onAdd(map: mapboxgl.Map) {
         this.map = map;
@@ -15,8 +16,13 @@ export class CountriesControll implements IControl {
         return this.container;
     }
 
+    setZones(zones: Array<{ [key: string]: string }>) {
+        this.zones = zones;
+    }
+
     onRemove() {
         this.container?.parentNode?.removeChild(this.container);
+        this.map?.off("mousemove", this.onMouseMove);
         this.map = null;
     }
 
@@ -39,7 +45,7 @@ export class CountriesControll implements IControl {
         if (this.highlightedZone === code) return;
         this.removeHighlightedZone();
         const layer = this.layers.get(code);
-        layer?.addHighLight();
+        layer?.addHighlight();
         this.highlightedZone = code;
     };
 

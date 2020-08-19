@@ -33,6 +33,7 @@ import slovenia from "./assets/countries/slovenia.json";
 import sweden from "./assets/countries/sweden.json";
 import ukraine from "./assets/countries/ukraine.json";
 import albania from "./assets/countries/albania.json";
+import slovakia from "./assets/countries/slovakia.json";
 
 export enum ZoneCode {
     Benelux = "Benelux",
@@ -95,6 +96,7 @@ createZone(
             ...moldova,
             ...belarus,
             ...ukraine,
+            ...slovakia,
         ],
         ZoneCode.EasternEuropeBalkan,
     ),

@@ -1,25 +1,34 @@
 import * as turf from "@turf/turf";
+import Popup from "popup";
 
 export class ZoneLayer {
     sourceId: string;
     layerId: string;
     isHighlighted = false;
+    popup: Popup;
+    info: { [key: string]: string } | null = null;
 
     constructor(private map: mapboxgl.Map, private zone: string) {
         this.sourceId = `zone-source-${zone}`;
         this.layerId = `zone-layer-${zone}`;
+        this.popup = new Popup(this.map, { layerId: this.layerId });
     }
 
     add(data: turf.helpers.FeatureCollection) {
         this.addSource(data);
         this.addLayer();
+        this.popup.add();
     }
 
-    addHighLight = () => {
+    addHighlight = () => {
         if (this.isHighlighted) return;
         this.map.setPaintProperty(this.layerId, "fill-opacity", 0.5);
         this.map.getCanvas().style.cursor = "pointer";
         this.isHighlighted = true;
+    };
+
+    setInfo = (info: { [key: string]: string }) => {
+        this.info = info;
     };
 
     removeHighLight = () => {
