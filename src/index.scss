@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#map-element-id {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    .mapboxgl-ctrl-attrib-inner {
+        display: none;
+    }
+}
