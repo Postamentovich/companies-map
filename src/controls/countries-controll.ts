@@ -18,6 +18,11 @@ export class CountriesControll implements IControl {
 
     setZones(zones: Array<{ [key: string]: string }>) {
         this.zones = zones;
+        this.zones.forEach((zone) => {
+            const layer = this.layers.get(zone.code as ZoneCode);
+            console.log(zone.code);
+            layer?.setInfo(zone);
+        });
     }
 
     onRemove() {
@@ -52,7 +57,8 @@ export class CountriesControll implements IControl {
     init = () => {
         if (!this.map) return;
         zones.forEach((zone) => {
-            const layer = new ZoneLayer(this.map!, zone.code);
+            const info = this.zones.find((el) => el.code === zone.code);
+            const layer = new ZoneLayer(this.map!, zone.code, info);
             layer.add(zone.collection);
             this.layers.set(zone.code, layer);
         });

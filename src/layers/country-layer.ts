@@ -6,12 +6,11 @@ export class ZoneLayer {
     layerId: string;
     isHighlighted = false;
     popup: Popup;
-    info: { [key: string]: string } | null = null;
 
-    constructor(private map: mapboxgl.Map, private zone: string) {
-        this.sourceId = `zone-source-${zone}`;
-        this.layerId = `zone-layer-${zone}`;
-        this.popup = new Popup(this.map, { layerId: this.layerId });
+    constructor(private map: mapboxgl.Map, private zone: string, private info?: { [key: string]: string } | null) {
+        this.sourceId = `zone-source-${this.zone}`;
+        this.layerId = `zone-layer-${this.zone}`;
+        this.popup = new Popup(this.map, { layerId: this.layerId, info: this.info });
     }
 
     add(data: turf.helpers.FeatureCollection) {
@@ -29,6 +28,7 @@ export class ZoneLayer {
 
     setInfo = (info: { [key: string]: string }) => {
         this.info = info;
+        this.popup.setInfo(info);
     };
 
     removeHighLight = () => {

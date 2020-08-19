@@ -9,6 +9,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 const mapElementID = "map-element-id";
 export const App: React.FC = () => {
     const map = useRef<mapboxgl.Map>();
+    const controll = useRef<CountriesControll>();
     const [zones, setZones] = useState<Array<{ [key: string]: string }>>([]);
     const [carriers, setCarriers] = useState<Array<{ [key: string]: string }>>([]);
 
@@ -22,10 +23,8 @@ export const App: React.FC = () => {
             maxZoom: 17,
             fadeDuration: 100,
         });
-
-        const countriesControll = new CountriesControll();
-
-        map.current.addControl(countriesControll);
+        controll.current = new CountriesControll();
+        map.current.addControl(controll.current);
     }, []);
 
     useEffect(() => {
@@ -33,6 +32,7 @@ export const App: React.FC = () => {
             try {
                 const data: any = await getTableData();
                 setZones(data.Zones.elements);
+                controll.current?.setZones(data.Zones.elements);
                 setCarriers(data.Carriers.elements);
             } catch (error) {
                 console.error(error);

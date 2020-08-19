@@ -1,4 +1,7 @@
+import React from "react";
 import mapboxgl from "mapbox-gl";
+import ReactDOMServer from "react-dom/server";
+import { MapPopup } from "components/map-popup";
 
 export default class Popup {
     constructor(map, options = {}) {
@@ -8,15 +11,17 @@ export default class Popup {
         this.popup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false,
-            maxWidth: "200px",
         });
         this.handleMoveMouse = this.handleMoveMouse.bind(this);
         this.info = options.info;
     }
 
-    getPopupHTML(props) {
-        const popupHTML = `<p>${props}fdsfsd</p>`;
-        return popupHTML;
+    setInfo(info) {
+        this.info = info;
+    }
+
+    getPopupHTML() {
+        return ReactDOMServer.renderToString(<MapPopup info={this.info} />);
     }
 
     showPopup(e, props) {
