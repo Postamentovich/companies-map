@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useRef } from "react";
+// import belfium from "./assets/countries/netherlands.json";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
+import { CountriesControll } from "controls/countries-controll";
 
 const mapElementID = "map-element-id";
 export const App: React.FC = () => {
@@ -16,30 +19,29 @@ export const App: React.FC = () => {
             zoom: 4,
         });
 
-        // map.current.on("load", function () {
-        //     // Add source for admin-1 Boundaries
-        //     map.current?.addSource("admin-1", {
-        //         type: "vector",
-        //         url: "mapbox://mapbox.boundaries-adm1-v3",
-        //     });
+        const countriesControll = new CountriesControll();
 
-        //     // Add a layer with boundary polygons
-        //     map.current?.addLayer(
-        //         {
-        //             id: "admin-1-fill",
-        //             type: "fill",
-        //             source: "admin-1",
-        //             "source-layer": "boundaries_admin_1",
-        //             paint: {
-        //                 "fill-color": "#CCCCCC",
-        //             },
+        map.current.addControl(countriesControll);
+
+        // @ts-ignore
+        // window.BIG_MAP = map.current;
+
+        // map.current.on("load", function () {
+        //     map.current?.addSource("maine", {
+        //         type: "geojson",
+        //         // @ts-ignore
+        //         data: belfium,
+        //     });
+        //     map.current?.addLayer({
+        //         id: "maine",
+        //         type: "fill",
+        //         source: "maine",
+        //         layout: {},
+        //         paint: {
+        //             "fill-color": "#088",
+        //             "fill-opacity": 0.8,
         //         },
-        //         // This final argument indicates that we want to add the Boundaries layer
-        //         // before the `waterway-label` layer that is in the map from the Mapbox
-        //         // Light style. This ensures the admin polygons will be rendered on top of
-        //         // the
-        //         "waterway-label",
-        //     );
+        //     });
         // });
     }, []);
 
