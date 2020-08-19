@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useRef } from "react";
-// import belfium from "./assets/countries/netherlands.json";
 import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
 import { CountriesControll } from "controls/countries-controll";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 const mapElementID = "map-element-id";
 export const App: React.FC = () => {
@@ -24,25 +23,7 @@ export const App: React.FC = () => {
         map.current.addControl(countriesControll);
 
         // @ts-ignore
-        // window.BIG_MAP = map.current;
-
-        // map.current.on("load", function () {
-        //     map.current?.addSource("maine", {
-        //         type: "geojson",
-        //         // @ts-ignore
-        //         data: belfium,
-        //     });
-        //     map.current?.addLayer({
-        //         id: "maine",
-        //         type: "fill",
-        //         source: "maine",
-        //         layout: {},
-        //         paint: {
-        //             "fill-color": "#088",
-        //             "fill-opacity": 0.8,
-        //         },
-        //     });
-        // });
+        window.BIG_MAP = map.current;
     }, []);
 
     return <div id={mapElementID} />;
