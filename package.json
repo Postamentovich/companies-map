@@ -14,7 +14,6 @@
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
     "classnames": "^2.2.6",
-    "data.js": "^0.12.11",
     "mapbox-gl": "^1.12.0",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
