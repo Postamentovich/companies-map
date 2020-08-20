@@ -61,7 +61,12 @@ const createZone = (name: string, code: ZoneCode, collection: turf.helpers.Featu
 };
 
 const createCollection = (zones: any[], zoneCode: ZoneCode) => {
-    return turf.featureCollection(zones.map((zone) => ({ ...zone, properties: { zoneCode } })));
+    return turf.featureCollection(
+        zones.map((zone) => {
+            const zoneWithProperties = { ...zone, properties: { zoneCode } };
+            return turf.cleanCoords(turf.simplify(zoneWithProperties, { tolerance: 0.00001, highQuality: true }));
+        }),
+    );
 };
 
 createZone(

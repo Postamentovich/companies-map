@@ -5,18 +5,4 @@
         font-size: 14px;
         font-weight: bold;
     }
-
-    &__row {
-        display: flex;
-        margin-top: 5px;
-    }
-
-    &__name {
-        flex: 1;
-        color: gray;
-    }
-
-    &__value {
-        flex: 1;
-    }
 }

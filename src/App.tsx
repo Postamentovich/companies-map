@@ -4,14 +4,17 @@ import mapboxgl from "mapbox-gl";
 import { CountriesControll } from "controls/countries-controll";
 import { ZoneCard } from "components/zone-card";
 import { getTableData } from "api/zones-api";
+import { ZoneCode } from "zones";
+import { SpreadSheet } from "types";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 const mapElementID = "map-element-id";
 export const App: React.FC = () => {
     const map = useRef<mapboxgl.Map>();
     const controll = useRef<CountriesControll>();
-    const [zones, setZones] = useState<Array<{ [key: string]: string }>>([]);
-    const [carriers, setCarriers] = useState<Array<{ [key: string]: string }>>([]);
+    const [zones, setZones] = useState<SpreadSheet>([]);
+    const [carriers, setCarriers] = useState<SpreadSheet>([]);
+    const [activeZone, setActiveZone] = useState<ZoneCode | null>(null);
 
     useEffect(() => {
         mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN as string;
@@ -21,16 +24,15 @@ export const App: React.FC = () => {
             center: new mapboxgl.LngLat(12.250433670745679, 48.352383758494454),
             zoom: 4,
             maxZoom: 17,
-            fadeDuration: 100,
         });
-        controll.current = new CountriesControll();
+        controll.current = new CountriesControll(setActiveZone);
         map.current.addControl(controll.current);
     }, []);
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const data: any = await getTableData();
+                const data = await getTableData();
                 setZones(data.Zones.elements);
                 controll.current?.setZones(data.Zones.elements);
                 setCarriers(data.Carriers.elements);
@@ -44,7 +46,7 @@ export const App: React.FC = () => {
     return (
         <>
             <div id={mapElementID} />
-            <ZoneCard zones={zones} carriers={carriers} />
+            <ZoneCard zones={zones} carriers={carriers} activeZone={activeZone} />
         </>
     );
 };

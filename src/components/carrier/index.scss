@@ -1,0 +1,27 @@
+.carrier {
+    padding-top: 20px;
+
+    &__title {
+        padding-bottom: 10px;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    &__row {
+        display: flex;
+    }
+
+    &__key {
+        width: 150px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        color: gray;
+    }
+
+    &__value {
+        flex: 1;
+        overflow: hidden;
+        text-align: left;
+    }
+}
