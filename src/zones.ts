@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as turf from "@turf/turf";
 import belgium from "./assets/countries/belgium.json";
 import netherlands from "./assets/countries/netherlands.json";
