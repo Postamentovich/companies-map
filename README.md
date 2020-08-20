@@ -83,7 +83,7 @@ List of zone codes. Used to connect table and application data.
 ![Utils](https://github.com/Postamentovich/companies-map/blob/master/src/assets/images/zones.PNG)
 IMPORTANT! Do not change fields marked in gray <br>
 The first column is auxiliary code, taken from the utils table.
-For each zone, you can add the required characteristic and the transport company for it. To do this, you need to add a column. In the first line, you need to indicate the name of the characteristic (for example, 1 - 30kg) and indicate the transport company for the desired zone. It is very important that the company name coincides with the name in the carriers tab, for this a drop-down list has been made.
+For each zone, you can add the required characteristic and the transport company for it. To do this, you need to add a column. In the first line, you need to indicate the name of the characteristic (for example, 1 - 30kg). It is very important that the characteristic on the first line is unique. If you need to add several companies for one characteristic, use different names for example (> 2500 kg 1, > 2500 kg 2). Indicate the transport company for the desired zone. It is very important that the company name coincides with the name in the carriers tab, for this a drop-down list has been made.
 
 ### Carriers
 
