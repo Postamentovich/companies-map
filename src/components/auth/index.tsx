@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./index.scss";
 
 export const Auth: React.FC = ({ children }) => {
@@ -6,9 +6,7 @@ export const Auth: React.FC = ({ children }) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    if (isAuth) return <>{children}</>;
-
-    const checkPassword = () => {
+    const checkPassword = useCallback(() => {
         if (password === process.env.REACT_APP_PASSWORD) {
             setIsAuth(true);
             setPassword("");
@@ -16,9 +14,24 @@ export const Auth: React.FC = ({ children }) => {
         } else {
             setError("Incorrect password");
         }
-    };
+    }, [password]);
+
+    useEffect(() => {
+        const listener = (e: KeyboardEvent) => {
+            if (e.key === "Enter") {
+                checkPassword();
+            }
+        };
+        window.addEventListener("keypress", listener);
+        return () => {
+            window.removeEventListener("keypress", listener);
+        };
+    }, [checkPassword]);
+
+    if (isAuth) return <>{children}</>;
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setError("");
         setPassword(e.target.value);
     };
 
