@@ -2,11 +2,13 @@
     &__row {
         display: flex;
         margin-top: 5px;
+        font-size: 14px;
     }
 
     &__name {
         flex: 1;
         color: gray;
+        padding-right: 5px;
     }
 
     &__value {

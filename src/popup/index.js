@@ -11,6 +11,7 @@ export default class Popup {
         this.popup = new mapboxgl.Popup({
             closeButton: false,
             closeOnClick: false,
+            maxWidth: "300px",
         });
         this.handleMoveMouse = this.handleMoveMouse.bind(this);
         this.info = options.info;

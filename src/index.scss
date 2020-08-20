@@ -1,3 +1,11 @@
+@font-face {
+    font-family: Calibri;
+    src: url("./assets/fonts/8277.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -5,6 +13,7 @@ body {
 
 * {
     box-sizing: border-box;
+    font-family: Calibri, sans-serif;
 }
 
 #map-element-id {

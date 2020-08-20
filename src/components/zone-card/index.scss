@@ -16,4 +16,17 @@
         font-size: 18px;
         padding-bottom: 20px;
     }
+
+    & .zone-info__name {
+        width: 150px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        flex: none;
+    }
+
+    & .zone-info__value {
+        flex: none;
+        font-weight: bold;
+    }
 }

@@ -16,7 +16,9 @@ export const ZoneInfo: React.FC<Props> = ({ zone }) => {
                 if (key === "code" || key === "Zone name" || !value) return null;
                 return (
                     <div key={index} className={`${baseClass}__row`}>
-                        <div className={`${baseClass}__name`}>{key}</div>
+                        <div className={`${baseClass}__name`} title={key}>
+                            {key}
+                        </div>
                         <div className={`${baseClass}__value`}>{value}</div>
                     </div>
                 );

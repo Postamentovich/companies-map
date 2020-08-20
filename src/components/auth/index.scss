@@ -1,0 +1,38 @@
+.auth {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+
+    &__popup {
+        width: 300px;
+        background-color: white;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+        border-radius: 4px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    &__password {
+        margin-top: 15px;
+        padding: 5px;
+    }
+
+    &__button {
+        margin-top: 15px;
+        padding: 5px;
+    }
+
+    &__error {
+        color: red;
+    }
+}
