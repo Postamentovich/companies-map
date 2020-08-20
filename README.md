@@ -62,3 +62,31 @@
 </table>
 
 ### <a name="googlesheet">Google Sheet Description</a>
+
+[Link on spreadsheet](https://docs.google.com/spreadsheets/d/1WiCHITHe2RrYocz_xxnoXxwhNDIibQhoIGe6hZpNU6c/edit#gid=1139380687)
+
+We have 3 sheets:
+
+-   Zones
+-   Carriers
+-   Utils
+
+### Utils
+
+![Utils](./src/assets/images/utils.png)
+
+IMPORTANT! DO NOT CHANGE THIS LIST <br>
+List of zone codes. Used to connect table and application data.
+
+### Zones
+
+![Utils](./src/assets/images/zones.png)
+IMPORTANT! Do not change fields marked in gray <br>
+The first column is auxiliary code, taken from the utils table.
+For each zone, you can add the required characteristic and the transport company for it. To do this, you need to add a column. In the first line, you need to indicate the name of the characteristic (for example, 1 - 30kg) and indicate the transport company for the desired zone. It is very important that the company name coincides with the name in the carriers tab, for this a drop-down list has been made.
+
+### Carriers
+
+![Utils](./src/assets/images/carriers.png)
+IMPORTANT! Change the fields marked in gray with care, the carrier's name must match the name in the zone table<br>
+Carrier information for the zone is taken from this table. You can edit all information about a carrier, add and remove carriers.
