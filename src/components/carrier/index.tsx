@@ -43,7 +43,7 @@ export const Carrier: React.FC<Props> = ({ data }) => {
                                 {value}
                             </a>
                         ) : isUrl ? (
-                            <a className={valueClass} href={value} target="_blank" rel="noreferrer">
+                            <a className={valueClass} href={value} target="_blank" rel="noopener noreferrer">
                                 {value}
                             </a>
                         ) : (
