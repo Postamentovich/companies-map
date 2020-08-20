@@ -1,26 +1,33 @@
 ## Interaction Map with Euro Zones
 
-### Features
+1. [Features](#features)
+1. [Technologies and libraries used](#technology)
+1. [Project structure](#structure)
+1. [ENV Variables](#variables)
+1. [Google Sheet Description](#googlesheet)
+
+### <a name="features">Features</a>
 
 -   Simple password protected
 -   Europe map divided into transport zones
 -   On hover zone highlighted on the map
 -   On hover zone show popup with information about companies
 -   On click zone show detail information in side card
--   getting information about companies from google sheet
+-   Getting information about companies from google sheet
 
-### Technologies and libraries used
+### <a name="technology">Technologies and libraries used</a>
 
 -   React
 -   Mapbox
 -   Turf
 -   TableTop
 
-### Project structure
+### <a name="structure">Project structure</a>
 
 ```
 └── src/                            # Main folder
     ├── api/                        # Services for API interactions
+    ├── assets/                     # App assets (geojson, fonts)
     ├── components/                 # React components
     ├── controls/                   # Mapbox controls
     ├── layers/                     # Mapbox layers
@@ -29,7 +36,7 @@
     index.scss                      # Styles css
 ```
 
-### ENV VARIABLES:
+### <a name="variables">ENV Variables</a>
 
 <table class="table table-bordered table-striped">
   <thead>
@@ -53,3 +60,5 @@
     </tr>
   </tbody>
 </table>
+
+### <a name="googlesheet">Google Sheet Description</a>
