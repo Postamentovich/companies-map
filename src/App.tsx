@@ -45,6 +45,7 @@ export const App: React.FC = () => {
 
     return (
         <>
+            <img src={"logo.png"} className="main-logo" alt="logo"></img>
             <div id={mapElementID} />
             <ZoneCard zones={zones} carriers={carriers} activeZone={activeZone} />
         </>

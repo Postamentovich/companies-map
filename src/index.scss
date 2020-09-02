@@ -22,3 +22,12 @@ body {
     bottom: 0;
     width: 100%;
 }
+
+.main-logo {
+    position: absolute;
+    width: 200px;
+    right: 15px;
+    top: 15px;
+
+    z-index: 1;
+}
