@@ -37,6 +37,7 @@ export const Auth: React.FC = ({ children }) => {
 
     return (
         <div className="auth">
+            <img src={"logo.png"} className="auth__logo" alt="logo"></img>
             <div className="auth__popup">
                 <label htmlFor="password" className="auth__label">
                     Enter password

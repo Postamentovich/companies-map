@@ -1,5 +1,6 @@
 .carrier {
     padding-top: 20px;
+    
 
     &__title {
         padding-bottom: 10px;
@@ -9,6 +10,10 @@
 
     &__row {
         display: flex;
+
+        > a {
+            color: blue;
+        }
     }
 
     &__key {

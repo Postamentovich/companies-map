@@ -3,9 +3,10 @@
     height: 100vh;
     position: relative;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.07);
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     &__popup {
         width: 300px;
@@ -34,5 +35,10 @@
 
     &__error {
         color: red;
+    }
+
+    &__logo {
+        width: 300px;
+        margin-bottom: 50px;
     }
 }
